@@ -1,6 +1,7 @@
-package com.sell.liqihao.sellsystem.Login;
+package com.sell.liqihao.sellsystem.Login.ui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -39,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.login_btn_register:
-                Toast.makeText(mContext, "123", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(mContext,RegisterActivity.class));
                 break;
             case R.id.login_btn_login:
                 Toast.makeText(mContext, "1234", Toast.LENGTH_SHORT).show();

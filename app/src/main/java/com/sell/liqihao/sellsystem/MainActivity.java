@@ -8,12 +8,9 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.sell.liqihao.sellsystem.Login.LoginActivity;
+import com.sell.liqihao.sellsystem.Login.ui.LoginActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
