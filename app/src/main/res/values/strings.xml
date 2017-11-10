@@ -23,4 +23,5 @@
     <string name="register_password">登录密码:</string>
     <string name="register_confirmpassword">确认密码:</string>
     <string name="register_tel">电话号码:</string>
+    <string name="register_confirm">确认注册</string>
 </resources>
