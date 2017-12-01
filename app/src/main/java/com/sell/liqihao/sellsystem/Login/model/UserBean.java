@@ -1,4 +1,4 @@
-package com.sell.liqihao.sellsystem.App;
+package com.sell.liqihao.sellsystem.Login.model;
 
 /**
  * Created by liqihao on 2017/11/8.

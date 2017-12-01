@@ -5,10 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sell.liqihao.sellsystem.Main.firstActivity">
-    <LinearLayout
+    tools:context="com.sell.liqihao.sellsystem.Main.FirstActivity">
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
@@ -19,19 +20,83 @@
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                 android:background="?attr/colorPrimary">
 
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="28dp"
+                <LinearLayout
+                    android:layout_marginLeft="18dp"
                     android:layout_gravity="center"
-                    android:hint="搜索"
-                    android:background="@null"
-                    android:maxLength="20"
-                    android:textColor="#929292"
-                    android:textColorHint="#929292"
-                    android:textSize="12dp"
-                    android:/>
+                    android:background="@drawable/search1"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:layout_width="220dp"
+                    android:layout_height="32dp"
+                    android:layout_centerVertical="true"
+                    android:id="@+id/main_searcher">
+                    <ImageView
+                        android:focusable="false"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@mipmap/navbar_search_black"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="搜索"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="7dp"/>
+
+                </LinearLayout>
             </android.support.v7.widget.Toolbar>
         </android.support.design.widget.AppBarLayout>
-    </LinearLayout>
+        <RadioGroup
+            android:background="@color/AliceBlue"
+            android:id="@+id/activity_main_rp"
+            android:orientation="horizontal"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="bottom"
+            android:layout_alignParentBottom="true">
+
+            <RadioButton
+                android:drawableTop="@drawable/home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="主页"
+                style="@style/button"
+                android:layout_marginTop="10dp"/>
+
+            <RadioButton
+                android:id="@+id/radioButton"
+                android:drawableTop="@drawable/hot"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="热卖"
+                android:layout_marginTop="10dp"
+                style="@style/button"/>
+
+            <RadioButton
+                android:drawableTop="@drawable/content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="分类"
+                android:layout_marginTop="10dp"
+                style="@style/button"/>
+
+            <RadioButton
+                android:drawableTop="@drawable/cart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="购物车"
+                android:layout_marginTop="10dp"
+                style="@style/button"/>
+        </RadioGroup>
+
+    </RelativeLayout>
 
 </android.support.v4.widget.DrawerLayout>

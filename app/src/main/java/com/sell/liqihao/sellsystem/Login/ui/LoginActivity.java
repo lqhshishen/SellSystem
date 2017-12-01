@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.sell.liqihao.sellsystem.Main.FirstActivity;
 import com.sell.liqihao.sellsystem.R;
 
 import butterknife.BindView;
@@ -43,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(new Intent(mContext,RegisterActivity.class));
                 break;
             case R.id.login_btn_login:
-                Toast.makeText(mContext, "1234", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(mContext, FirstActivity.class));
                 break;
         }
     }

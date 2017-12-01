@@ -5,11 +5,12 @@ import android.os.Bundle;
 
 import com.sell.liqihao.sellsystem.R;
 
-public class firstActivity extends AppCompatActivity {
+public class FirstActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
+
     }
 }

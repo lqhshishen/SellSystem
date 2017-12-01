@@ -20,20 +20,23 @@ public class MainActivity extends AppCompatActivity {
     Activity mContext;
     @BindView(R.id.first_img)
     ImageView firstimage;
+    boolean a;
 
+    Runnable run = new Runnable() {
+        @Override
+        public void run() {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    };
 
     @SuppressLint("HandlerLeak")
     private Handler handle = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 1:
-                    handle.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                            startActivity(intent);
-                        }
-                    },5 * 1000);
+                    handle.postDelayed(run,5 * 1000);
                     break;
             }
         }
@@ -54,8 +57,10 @@ public class MainActivity extends AppCompatActivity {
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.first_img:
+                handle.removeCallbacks(run);
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
         }
     }
 }
