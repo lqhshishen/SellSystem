@@ -7,9 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import com.sell.liqihao.sellsystem.Main.FirstActivity;
+import com.sell.liqihao.sellsystem.Main.Activity.FirstActivity;
 import com.sell.liqihao.sellsystem.R;
 
 import butterknife.BindView;
