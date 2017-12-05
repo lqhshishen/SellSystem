@@ -1,45 +1,119 @@
 package com.sell.liqihao.sellsystem.Main.Activity;
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
+import android.support.design.widget.TabLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
-import com.sell.liqihao.sellsystem.Main.Fragment.AllGodsFragment;
-import com.sell.liqihao.sellsystem.Main.Fragment.HomePageFragment;
-import com.sell.liqihao.sellsystem.Main.Fragment.HotGoodsFragment;
-import com.sell.liqihao.sellsystem.Main.Fragment.shoppingCartFragment;
+import com.sell.liqihao.sellsystem.allGoods.AllGodsFragment;
+import com.sell.liqihao.sellsystem.HomePage.ui.HomePageFragment;
+import com.sell.liqihao.sellsystem.hotGoods.HotGoodsFragment;
+import com.sell.liqihao.sellsystem.shoppingCart.shoppingCartFragment;
 import com.sell.liqihao.sellsystem.R;
+import com.sell.liqihao.sellsystem.Util.LogUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class FirstActivity extends AppCompatActivity {
-    List<Fragment> fragmentList;
+    @BindView(R.id.activity_main_rp)
+    RadioGroup activityMainRp;
+    @BindView(R.id.main_toolbar)
+    Toolbar mainToolbar;
+
+    List<android.support.v4.app.Fragment> fragmentList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
+        fragmentList = new ArrayList<>();
         ButterKnife.bind(this);
         addFragment();
+        initView();
     }
 
     private void addFragment() {
-        fragmentList.clear();
-        fragmentList.add(new AllGodsFragment());
+        if (fragmentList != null) {
+            fragmentList.clear();
+        }
         fragmentList.add(new HomePageFragment());
+        fragmentList.add(new AllGodsFragment());
         fragmentList.add(new HotGoodsFragment());
         fragmentList.add(new shoppingCartFragment());
     }
 
     private void showFragment(int showIndex,int hideIndex) {
-        Fragment showFragment  = fragmentList.get(showIndex);
-        Fragment hideIndent = fragmentList.get(hideIndex);
+        android.support.v4.app.Fragment showFragment  = fragmentList.get(showIndex);
+        android.support.v4.app.Fragment hideFragment = fragmentList.get(hideIndex);
         android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         if (!showFragment.isAdded()) {
-            ft.add(R.id.Hom)
+            ft.add(R.id.fragment_main,showFragment);
         }
+        if (showIndex == hideIndex) {
+            ft.show(showFragment).commit();
+        } else {
+            ft.show(showFragment).hide(hideFragment).commit();
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_toolbar,menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Toast.makeText(this, "你点击了侧滑按钮", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.shoucang:
+                Toast.makeText(this, "你点击了收藏按钮", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
+    private int previousIndex;
+    TabLayout tabLayout;
+    private void initView() {
+//        设置toolbar
+        setSupportActionBar(mainToolbar);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null){
+            actionBar.setTitle("");
+            actionBar.setHomeButtonEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setHomeAsUpIndicator(R.mipmap.content);
+        }
+//        设置radioButton
+        final RadioButton rb = (RadioButton) activityMainRp.getChildAt(0);
+
+        rb.setChecked(true);
+        previousIndex = 0;
+        showFragment(0,previousIndex);
+                activityMainRp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                        RadioButton rb = (RadioButton) group.findViewById(checkedId);
+                        LogUtil.e("qwer", String.valueOf(checkedId));
+                        int index = group.indexOfChild(rb);
+                showFragment(index,previousIndex);
+                previousIndex = index;
+            }
+        });
     }
 }
