@@ -1,6 +1,9 @@
 package com.sell.liqihao.sellsystem.Main.Activity;
 
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,8 +13,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.sell.liqihao.sellsystem.App.app;
+import com.sell.liqihao.sellsystem.User.bean.UserBean;
 import com.sell.liqihao.sellsystem.allGoods.AllGodsFragment;
 import com.sell.liqihao.sellsystem.HomePage.ui.HomePageFragment;
 import com.sell.liqihao.sellsystem.hotGoods.HotGoodsFragment;
@@ -24,12 +31,17 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class FirstActivity extends AppCompatActivity {
     @BindView(R.id.activity_main_rp)
     RadioGroup activityMainRp;
     @BindView(R.id.main_toolbar)
     Toolbar mainToolbar;
+    @BindView(R.id.user_drawer_layout)
+    DrawerLayout mDrawerLayout;
+    @BindView(R.id.navi_view)
+    NavigationView naviView;
 
     List<android.support.v4.app.Fragment> fragmentList;
 
@@ -39,8 +51,20 @@ public class FirstActivity extends AppCompatActivity {
         setContentView(R.layout.activity_first);
         fragmentList = new ArrayList<>();
         ButterKnife.bind(this);
+        initUser();
         addFragment();
         initView();
+    }
+
+    UserBean user;
+    private void initUser() {
+        user = new UserBean();
+        user.setImgUrl(R.mipmap.headpic);
+        user.setMoney("1024");
+        user.setTel("13218021383");
+        user.setNickname("MirageLe");
+
+        app.user = user;
     }
 
     private void addFragment() {
@@ -77,6 +101,7 @@ public class FirstActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 Toast.makeText(this, "你点击了侧滑按钮", Toast.LENGTH_SHORT).show();
+                mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
             case R.id.shoucang:
                 Toast.makeText(this, "你点击了收藏按钮", Toast.LENGTH_SHORT).show();
@@ -86,10 +111,23 @@ public class FirstActivity extends AppCompatActivity {
     }
 
 
-
+    TextView nickName;
+    TextView money;
+    TextView tel;
+    CircleImageView headerView;
     private int previousIndex;
-    TabLayout tabLayout;
+
     private void initView() {
+        View headView = naviView.getHeaderView(0);
+        headerView = headView.findViewById(R.id.head_view);
+        nickName = headView.findViewById(R.id.user_nickname);
+        money = headView.findViewById(R.id.user_money);
+        tel = headView.findViewById(R.id.user_tel);
+        nickName.setText("昵称:" + app.user.getNickname());
+        money.setText("余额:" + app.user.getMoney());
+        tel.setText("电话:" + app.user.getTel());
+        Glide.with(this).load(app.user.getImgUrl()).into(headerView);
+
 //        设置toolbar
         setSupportActionBar(mainToolbar);
         ActionBar actionBar = getSupportActionBar();

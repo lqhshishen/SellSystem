@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/user_drawer_layout"
     tools:context="com.sell.liqihao.sellsystem.Main.Activity.FirstActivity">
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="wrap_content"
@@ -107,5 +108,14 @@
         </RadioGroup>
 
     </android.support.design.widget.CoordinatorLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navi_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/fisrt_nav_menu"
+        app:headerLayout="@layout/first_nav_head">
+    </android.support.design.widget.NavigationView>
 
 </android.support.v4.widget.DrawerLayout>
