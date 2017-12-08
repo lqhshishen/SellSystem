@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 
 import com.sell.liqihao.sellsystem.R;
 
+import java.util.List;
+
 /**
  * Created by liqihao on 2017/12/5.
  */

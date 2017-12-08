@@ -1,7 +1,6 @@
 package com.sell.liqihao.sellsystem.Main.Activity;
 
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -13,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,7 +21,7 @@ import com.sell.liqihao.sellsystem.App.app;
 import com.sell.liqihao.sellsystem.User.bean.UserBean;
 import com.sell.liqihao.sellsystem.allGoods.AllGodsFragment;
 import com.sell.liqihao.sellsystem.HomePage.ui.HomePageFragment;
-import com.sell.liqihao.sellsystem.hotGoods.HotGoodsFragment;
+import com.sell.liqihao.sellsystem.hotGoods.ui.HotGoodsFragment;
 import com.sell.liqihao.sellsystem.shoppingCart.shoppingCartFragment;
 import com.sell.liqihao.sellsystem.R;
 import com.sell.liqihao.sellsystem.Util.LogUtil;
@@ -63,7 +63,6 @@ public class FirstActivity extends AppCompatActivity {
         user.setMoney("1024");
         user.setTel("13218021383");
         user.setNickname("MirageLe");
-
         app.user = user;
     }
 
@@ -72,8 +71,8 @@ public class FirstActivity extends AppCompatActivity {
             fragmentList.clear();
         }
         fragmentList.add(new HomePageFragment());
-        fragmentList.add(new AllGodsFragment());
         fragmentList.add(new HotGoodsFragment());
+        fragmentList.add(new AllGodsFragment());
         fragmentList.add(new shoppingCartFragment());
     }
 
@@ -100,7 +99,6 @@ public class FirstActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                Toast.makeText(this, "你点击了侧滑按钮", Toast.LENGTH_SHORT).show();
                 mDrawerLayout.openDrawer(GravityCompat.START);
                 break;
             case R.id.shoucang:
@@ -110,7 +108,7 @@ public class FirstActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
+    RelativeLayout bg;
     TextView nickName;
     TextView money;
     TextView tel;
@@ -119,6 +117,7 @@ public class FirstActivity extends AppCompatActivity {
 
     private void initView() {
         View headView = naviView.getHeaderView(0);
+        bg = headView.findViewById(R.id.bg_color);
         headerView = headView.findViewById(R.id.head_view);
         nickName = headView.findViewById(R.id.user_nickname);
         money = headView.findViewById(R.id.user_money);
@@ -139,16 +138,15 @@ public class FirstActivity extends AppCompatActivity {
         }
 //        设置radioButton
         final RadioButton rb = (RadioButton) activityMainRp.getChildAt(0);
-
         rb.setChecked(true);
         previousIndex = 0;
         showFragment(0,previousIndex);
-                activityMainRp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(RadioGroup group, int checkedId) {
-                        RadioButton rb = (RadioButton) group.findViewById(checkedId);
-                        LogUtil.e("qwer", String.valueOf(checkedId));
-                        int index = group.indexOfChild(rb);
+        activityMainRp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                RadioButton rb = (RadioButton) group.findViewById(checkedId);
+                LogUtil.e("qwer", String.valueOf(checkedId));
+                int index = group.indexOfChild(rb);
                 showFragment(index,previousIndex);
                 previousIndex = index;
             }

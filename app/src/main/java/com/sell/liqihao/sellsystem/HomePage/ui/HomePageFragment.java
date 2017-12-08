@@ -1,17 +1,14 @@
 package com.sell.liqihao.sellsystem.HomePage.ui;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TableLayout;
 
 import com.sell.liqihao.sellsystem.HomePage.adapter.PagerAdapter;
 import com.sell.liqihao.sellsystem.R;
-import com.sell.liqihao.sellsystem.Util.GetContext;
 import com.sell.liqihao.sellsystem.Util.LogUtil;
 
 import java.util.ArrayList;
@@ -44,7 +41,7 @@ public class HomePageFragment extends android.support.v4.app.Fragment {
         super.onViewCreated(view,saveInstanceState);
         fragmentList = new ArrayList<>();
         fragmentList.add(new RecommendFragment());
-        fragmentList.add(new activeFragment());
+        fragmentList.add(new ActiveFragment());
         fragmentList.add(new DiscountItemFragment());
 //        addFragment();
         title = new ArrayList<>();

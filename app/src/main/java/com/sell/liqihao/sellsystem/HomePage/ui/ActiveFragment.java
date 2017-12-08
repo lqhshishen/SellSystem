@@ -13,7 +13,7 @@ import com.sell.liqihao.sellsystem.R;
  * Created by liqihao on 2017/12/5.
  */
 
-public class activeFragment extends Fragment {
+public class ActiveFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

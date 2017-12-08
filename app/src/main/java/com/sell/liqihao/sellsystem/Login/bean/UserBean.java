@@ -1,4 +1,4 @@
-package com.sell.liqihao.sellsystem.Login.model;
+package com.sell.liqihao.sellsystem.Login.bean;
 
 /**
  * Created by liqihao on 2017/11/8.
