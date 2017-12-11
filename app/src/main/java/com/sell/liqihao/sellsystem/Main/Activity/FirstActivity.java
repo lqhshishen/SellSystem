@@ -19,10 +19,10 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.sell.liqihao.sellsystem.App.app;
 import com.sell.liqihao.sellsystem.User.bean.UserBean;
-import com.sell.liqihao.sellsystem.allGoods.AllGodsFragment;
+import com.sell.liqihao.sellsystem.allGoods.ui.AllGodsFragment;
 import com.sell.liqihao.sellsystem.HomePage.ui.HomePageFragment;
 import com.sell.liqihao.sellsystem.hotGoods.ui.HotGoodsFragment;
-import com.sell.liqihao.sellsystem.shoppingCart.shoppingCartFragment;
+import com.sell.liqihao.sellsystem.shoppingCart.ui.shoppingCartFragment;
 import com.sell.liqihao.sellsystem.R;
 import com.sell.liqihao.sellsystem.Util.LogUtil;
 

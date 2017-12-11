@@ -49,7 +49,7 @@ public class HomePageFragment extends android.support.v4.app.Fragment {
         title.add("活动商品");
         title.add("折扣商品");
         PagerAdapter adapter = new PagerAdapter(getChildFragmentManager(),fragmentList,title);
-        LogUtil.e("dsadas", String.valueOf(fragmentList.size()));
+//        LogUtil.e("dsadas", String.valueOf(fragmentList.size()));
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
     }

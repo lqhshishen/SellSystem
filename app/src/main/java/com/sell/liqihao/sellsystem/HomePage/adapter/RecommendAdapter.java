@@ -39,7 +39,7 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecommendAdapter.View
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         RecommendBean itemBean = data.get(position);
-        LogUtil.e("测试数据",itemBean.getMoney());
+//        LogUtil.e("测试数据",itemBean.getMoney());
         holder.money.setText(itemBean.getMoney());
         holder.name.setText(itemBean.getName());
         Glide.with(GetContext.getContext())

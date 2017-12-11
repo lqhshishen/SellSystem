@@ -2,8 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="hghghghtg"/>
+        android:src="@mipmap/activ_img"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"/>
 </LinearLayout>

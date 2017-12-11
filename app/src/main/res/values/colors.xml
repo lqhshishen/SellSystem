@@ -13,4 +13,5 @@
     <color name="red">#FF0000</color>
     <color name="grey">#808080</color>
     <color name="button_red">#FF5454</color>
+    <color name="bggrey">#f1f1f1</color>
 </resources>
