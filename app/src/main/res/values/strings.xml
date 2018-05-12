@@ -24,4 +24,24 @@
     <string name="register_confirmpassword">确认密码:</string>
     <string name="register_tel">电话号码:</string>
     <string name="register_confirm">确认注册</string>
+    <string name="addToCart">加入购物车</string>
+    <string name="buyNow">立即购买</string>
+    <string name="_344343243">电话：344343243</string>
+    <string name="_300">余额：300</string>
+    <string name="search">搜索</string>
+    <string name="upDateAddress">更改地址</string>
+    <string name="loginOut">退出账号</string>
+    <string name="logOut">退出账号</string>
+    <string name="confirm">确定</string>
+    <string name="account">账号:</string>
+    <string name="nickName">昵称</string>
+    <string name="tel">电话号码</string>
+    <string name="jingyin">静音生活</string>
+    <string name="经济">经济实用</string>
+    <string name="舒适">舒适人生</string>
+    <string name="确认收货">确定收货</string>
+    <string name="findPass">找回密码</string>
+    <string name="uruserName">您的用户名</string>
+    <string name="newPass">新密码</string>
+    <string name="sure">确定</string>
 </resources>
