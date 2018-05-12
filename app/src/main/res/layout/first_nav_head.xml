@@ -1,42 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     android:id="@+id/bg_color"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="180dp"
     android:padding="10dp"
-    android:background="?attr/colorPrimary"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:background="?attr/colorPrimary">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/head_view"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp"/>
+    <TextView
+        android:id="@+id/user_tel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/white"
+        android:textSize="14sp"/>
     <TextView
         android:id="@+id/user_nickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:textSize="14sp"
-        android:text="我是神"
-        android:layout_weight="1"
-        android:gravity="center"/>
+        android:layout_above="@id/user_tel"/>
+    <TextView
+        android:id="@+id/user_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/white"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/user_tel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:text="@string/_344343243"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:id="@+id/user_money"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:textColor="@color/white"
-            android:text="@string/_300"/>
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>

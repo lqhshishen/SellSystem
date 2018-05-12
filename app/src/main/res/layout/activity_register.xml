@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".module.Login.ui.RegisterActivity">
+    tools:context="com.sell.liqihao.sellsystem.Login.ui.RegisterActivity">
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,13 +32,6 @@
         android:gravity="end"
         android:paddingTop="50dp"
         android:paddingRight="30dp"/>
-
-    <include layout="@layout/loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone"/>
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -108,25 +101,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/register_nickName"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="50dp">
-            <TextView
-                style="@style/Setting_tv"
-                android:text="昵称" />
-
-            <EditText
-                android:id="@+id/register_edt_nickName"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                tools:ignore="InefficientWeight"
-                />
-        </LinearLayout>
-
-        <LinearLayout
             android:id="@+id/register_tel"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
@@ -150,7 +124,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/register_confirm"
-            android:layout_marginTop="20dp"/>
+            android:layout_marginTop="50dp"/>
 
 
     </LinearLayout>
