@@ -1,10 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <android.support.v7.widget.RecyclerView
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/cart_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="500dp">
+    </com.jcodecraeer.xrecyclerview.XRecyclerView>
+
+    <include layout="@layout/loading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/cart_recycler">
-    </android.support.v7.widget.RecyclerView>
-</LinearLayout>
+        android:layout_centerInParent="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="bottom"
+        android:background="@color/AliceBlue"
+        android:gravity="center"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/shopping_cart_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已选0件商品" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="总共:"
+            android:layout_marginStart="30dp"/>
+
+        <TextView
+            android:id="@+id/shopping_cart_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0元"
+            android:textColor="@color/red"
+            android:textSize="16sp"/>
+
+
+        <Button
+            android:id="@+id/shopping_cart_goToOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/folatButton"
+            android:layout_marginStart="50dp"
+            android:text="结算"
+            android:textSize="18sp" />
+
+
+
+
+    </LinearLayout>
+</RelativeLayout>

@@ -2,19 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:background="@color/bggrey">
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="80dp"
-        android:layout_height="match_parent"
-        android:id="@+id/all_type_recycle"
-        android:background="@color/white">
-    </android.support.v7.widget.RecyclerView>
+    <android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/allgods_tab"
+        app:tabMode="scrollable"
+        android:background="@color/colorPrimary">
+    </android.support.design.widget.TabLayout>
+
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/all_item_recycle"
-        android:layout_marginLeft="2dp">
+
+        android:layout_marginTop="20dp"
+>
     </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>
